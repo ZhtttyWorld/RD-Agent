@@ -1,0 +1,657 @@
+# Instincts generated from https://github.com/ZhtttyWorld/RD-Agent
+# Generated: 2026-05-09T02:23:47.544Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: RD-Agent-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, chore, docs
+
+## Evidence
+
+- 200 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix: harden AutoRL-Bench RL evaluators (#1402), doc: add Reasoning as Gradient paper (ACL 2026 Findings) to README (#1397)
+
+---
+id: RD-Agent-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 200 commits
+
+---
+id: RD-Agent-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: RD-Agent-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: RD-Agent-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: RD-Agent-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: RD-Agent-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: RD-Agent-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~13x per month
+- Files: rdagent/components/coder/data_science/pipeline/*, rdagent/components/interactor/*, rdagent/components/workflow/*
+
+---
+id: RD-Agent-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: src/**/*
+
+---
+id: RD-Agent-workflow-dependency-update-web
+trigger: "when doing dependency update web"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Dependency Update Web
+
+## Action
+
+Follow the dependency-update-web workflow:
+1. Update web/package.json with new dependency version(s)
+2. Update web/package-lock.json to lock new versions
+3. Commit both files with a message referencing the dependency and version
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: web/package.json, web/package-lock.json
+
+---
+id: RD-Agent-workflow-add-or-update-benchmark-or-dataset
+trigger: "when doing add or update benchmark or dataset"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Add Or Update Benchmark Or Dataset
+
+## Action
+
+Follow the add-or-update-benchmark-or-dataset workflow:
+1. Add or update files in rdagent/scenarios/finetune/benchmark/ or rdagent/scenarios/rl/autorl_bench/benchmarks/
+2. Add or update README.md or description.md for the benchmark/dataset
+3. Update configs (e.g., models.yaml, opencompass_template.yaml)
+4. Update or add evaluation scripts (eval.py, data.py, etc.)
+5. Update UI or summary code if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: rdagent/scenarios/finetune/benchmark/**, rdagent/scenarios/finetune/datasets/**, rdagent/scenarios/rl/autorl_bench/benchmarks/**
+
+---
+id: RD-Agent-workflow-scenario-feature-development-loop
+trigger: "when doing scenario feature development loop"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Scenario Feature Development Loop
+
+## Action
+
+Follow the scenario-feature-development-loop workflow:
+1. Implement or update scenario loop and core logic (e.g., loop.py, conf.py, scen.py)
+2. Add or update prompts and proposal logic (prompts.yaml, proposal.py)
+3. Add or update UI files (ui/app.py, ui/components.py, web/src/views/...)
+4. Add or update config files and requirements (requirements.txt, Dockerfile, .env.example)
+5. Add or update documentation (README.md, docs/...)
+6. Add or update tests if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: rdagent/app/finetune/llm/**, rdagent/app/rl/**, rdagent/scenarios/finetune/**
+
+---
+id: RD-Agent-workflow-qlib-experiment-template-update
+trigger: "when doing qlib experiment template update"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Qlib Experiment Template Update
+
+## Action
+
+Follow the qlib-experiment-template-update workflow:
+1. Update YAML config files for Qlib experiments (conf_baseline.yaml, conf_combined_factors.yaml, etc.)
+2. Update runner scripts (factor_runner.py, model_runner.py)
+3. Update experiment logic (factor_experiment.py, model_experiment.py)
+4. Update documentation if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: rdagent/scenarios/qlib/experiment/factor_template/*.yaml, rdagent/scenarios/qlib/experiment/model_template/*.yaml, rdagent/scenarios/qlib/experiment/*.py
+
+---
+id: RD-Agent-workflow-prompt-and-proposal-improvement
+trigger: "when doing prompt and proposal improvement"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/ZhtttyWorld/RD-Agent
+---
+
+# RD Agent Workflow Prompt And Proposal Improvement
+
+## Action
+
+Follow the prompt-and-proposal-improvement workflow:
+1. Edit or add prompts.yaml files in relevant scenario/component directories
+2. Update proposal.py or related logic to use new prompts or handle new response formats
+3. Update or add documentation if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: rdagent/components/coder/**/prompts.yaml, rdagent/scenarios/*/proposal/prompts.yaml, rdagent/scenarios/*/proposal/proposal.py
+
+---
+id: rd-agent-instinct-file-naming
+trigger: "When creating or renaming a Python file"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in rdagent/components/agent/base.py
+- Pattern in rdagent/app/cli.py
+
+---
+id: rd-agent-instinct-function-naming
+trigger: "When defining a Python function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in rdagent/components/agent/base.py
+- Pattern in rdagent/app/cli.py
+
+---
+id: rd-agent-instinct-class-naming
+trigger: "When defining a Python class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in rdagent/components/agent/base.py
+- Pattern in rdagent/components/agent/context7.py
+
+---
+id: rd-agent-instinct-constant-naming
+trigger: "When defining a constant in Python"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in rdagent/components/agent/base.py
+
+---
+id: rd-agent-instinct-import-style
+trigger: "When importing modules in Python"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Import Style
+
+## Action
+
+Use a mixed import style (both absolute and relative as appropriate)
+
+## Evidence
+
+- Pattern in rdagent/components/agent/base.py
+- Pattern in rdagent/app/cli.py
+
+---
+id: rd-agent-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Export Style
+
+## Action
+
+Use a mixed export style as seen in the codebase
+
+## Evidence
+
+- Pattern in rdagent/components/agent/base.py
+- Pattern in rdagent/components/agent/context7.py
+
+---
+id: rd-agent-instinct-test-file-pattern
+trigger: "When creating a test file for the web frontend"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts
+
+## Evidence
+
+- Pattern in web/src/views/*.test.ts
+
+---
+id: rd-agent-instinct-test-type
+trigger: "When writing tests for the web frontend"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Test Type
+
+## Action
+
+Write unit tests
+
+## Evidence
+
+- Pattern in web/src/views/*.test.ts
+
+---
+id: rd-agent-instinct-test-location
+trigger: "When adding tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Test Location
+
+## Action
+
+Place test files in a separate test directory
+
+## Evidence
+
+- Pattern in test/ folder in root
+
+---
+id: rd-agent-instinct-git-commit-format
+trigger: "When making a git commit"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Git Commit Format
+
+## Action
+
+Use Conventional Commits format: <type>: <description> (e.g., fix: harden AutoRL-Bench RL evaluators (#1402))
+
+## Evidence
+
+- Seen in commit 'fix: harden AutoRL-Bench RL evaluators (#1402)'
+- Pattern in commit history
+
+---
+id: rd-agent-instinct-git-commit-types
+trigger: "When choosing a commit type"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Git Commit Types
+
+## Action
+
+Use one of: fix, feat, chore, docs, refactor
+
+## Evidence
+
+- Seen in commit 'fix: harden AutoRL-Bench RL evaluators (#1402)'
+- Pattern in commit history
+
+---
+id: rd-agent-instinct-git-commit-length
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 55 characters on average
+
+## Evidence
+
+- Average commit message length is 55
+- Pattern in commit history
+
+---
+id: rd-agent-instinct-dependency-update-web
+trigger: "When a dependency in the web frontend needs to be updated (security, bugfix, or routine maintenance)"
+confidence: 0.99
+domain: workflow
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Dependency Update Web
+
+## Action
+
+Update web/package.json and web/package-lock.json, then commit both files with a message referencing the dependency and version
+
+## Evidence
+
+- Workflow: dependency-update-web
+- Pattern in web/package.json and web/package-lock.json updates
+
+---
+id: rd-agent-instinct-add-or-update-benchmark-or-dataset
+trigger: "When a new benchmark or dataset is integrated, or an existing one is updated for evaluation or training"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Add Or Update Benchmark Or Dataset
+
+## Action
+
+Add or update relevant benchmark/dataset files, update documentation and configs, and add evaluation scripts as needed
+
+## Evidence
+
+- Workflow: add-or-update-benchmark-or-dataset
+- Pattern in rdagent/scenarios/finetune/benchmark/** and rdagent/scenarios/rl/autorl_bench/benchmarks/**
+
+---
+id: rd-agent-instinct-scenario-feature-development-loop
+trigger: "When a new scenario or major feature is being built or significantly extended"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Scenario Feature Development Loop
+
+## Action
+
+Implement or update scenario logic, prompts, UI, configs, documentation, and tests across relevant directories
+
+## Evidence
+
+- Workflow: scenario-feature-development-loop
+- Pattern in rdagent/app/finetune/llm/**, rdagent/scenarios/finetune/**, web/src/views/**, etc.
+
+---
+id: rd-agent-instinct-qlib-experiment-template-update
+trigger: "When Qlib experiment structure or configuration needs to be updated for new features or refactoring"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Qlib Experiment Template Update
+
+## Action
+
+Update Qlib experiment YAMLs, runner scripts, experiment logic, and documentation as needed
+
+## Evidence
+
+- Workflow: qlib-experiment-template-update
+- Pattern in rdagent/scenarios/qlib/experiment/factor_template/*.yaml, rdagent/scenarios/qlib/experiment/*.py
+
+---
+id: rd-agent-instinct-prompt-and-proposal-improvement
+trigger: "When prompt templates or proposal logic need to be improved for better agent performance or new features"
+confidence: 0.87
+domain: workflow
+source: repo-analysis
+source_repo: ZhtttyWorld/RD-Agent
+---
+
+# Rd Agent Instinct Prompt And Proposal Improvement
+
+## Action
+
+Edit or add prompts.yaml and proposal.py in relevant scenario/component directories, update documentation if needed
+
+## Evidence
+
+- Workflow: prompt-and-proposal-improvement
+- Pattern in rdagent/components/coder/**/prompts.yaml, rdagent/scenarios/*/proposal/prompts.yaml
+
