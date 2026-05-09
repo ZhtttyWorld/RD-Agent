@@ -1,7 +1,9 @@
 ---
 name: "\U0001F41B Bug Report"
 about: Submit a bug report to help us improve RD-Agent
+title: ''
 labels: bug
+assignees: ''
 
 ---
 
